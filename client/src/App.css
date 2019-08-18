@@ -1,0 +1,19 @@
+.film_main_p {
+    font-size: 20px;
+  margin-top:20%;
+}
+a.film_main_button {
+    font-size: 40px
+}
+a, a:link, a:hover {
+  text-decoration: none;
+  
+}
+.actors {
+  display: flex;
+  margin: 20px;
+}
+.actor {
+  display: flex;
+  justify-content: center;
+}

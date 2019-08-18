@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  producer: MyString
+  time_create: 2019-08-15
+
+two:
+  name: MyString
+  description: MyText
+  producer: MyString
+  time_create: 2019-08-15

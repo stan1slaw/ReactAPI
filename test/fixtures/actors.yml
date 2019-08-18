@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  film: one
+  description: MyText
+  name: MyString
+  years: 2019-08-15
+
+two:
+  film: two
+  description: MyText
+  name: MyString
+  years: 2019-08-15
