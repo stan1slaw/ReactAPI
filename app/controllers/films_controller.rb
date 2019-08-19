@@ -3,13 +3,13 @@ class FilmsController < ApplicationController
 
   # GET /films
   def index
-    @films = Film.select("id,name,time_create,avatars").all
+    @films = Film.select("id,name,time_create,avatars,description, producer").all
     render json: @films
   end
 
   # GET /films/1
   def show
-    render json: @film.to_json(:include => { :actors => { :only => [:id, :name] }})
+    render json: @film.to_json(:include => { :actors => { :only => [:id, :name, :avatar] }})
     end
 
   # POST /films

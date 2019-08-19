@@ -6,7 +6,7 @@ a.film_main_button {
     font-size: 40px
 }
 a, a:link, a:hover {
-  text-decoration: none;
+  text-decoration: none !important; 
   
 }
 .actors {
@@ -16,4 +16,20 @@ a, a:link, a:hover {
 .actor {
   display: flex;
   justify-content: center;
+}
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.photo img {
+  width:250px;
+  height: 200px;
+  margin: 10px;
+}
+.actor_photo_url img{
+  height: 2100px;
+}
+.form-login {
+  margin-bottom: 10px !important;
 }

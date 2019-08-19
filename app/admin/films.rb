@@ -8,7 +8,7 @@ ActiveAdmin.register Film do
       f.input :description
       f.input :producer
       f.input :rating
-      f.input :avatars,multiple: true, :as => :file
+      f.input :avatars, as: :file, input_html: { multiple: true }
       f.actions
     end
   end

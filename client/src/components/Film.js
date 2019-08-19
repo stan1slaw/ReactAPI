@@ -1,18 +1,26 @@
 import React from 'react'
 import '../App.css'
 import {Link} from 'react-router-dom'
+import {Icon,Card, Image} from 'semantic-ui-react'
 class Film extends React.Component {
+
     render() {
-        let { film } = this.props
+        let { film, keygen } = this.props
         return (
-            <div className={`col-md-4 text-center`} style={{marginTop: '10px'}}>
-                    <div className="img-thumbnail thumb-box">
-                        <h3 className="text-center" style={{display: 'inline-block'}}>
-                            <Link to={`/film/${film.id}`}>{film.name}</Link>
-                        </h3>
-                        <img src={film.avatars.url}  alt={film.name}  style={{height: 350, width: '90%'}}/>
-                    </div>
-            </div>
+            <Card as={Link} to={`/film/${film.id}`}  key={keygen} >
+    <Image src={film.avatars[0].url} wrapped ui={false} />
+    <Card.Content>
+      <Card.Header>{film.name}</Card.Header>
+      <Card.Meta>{film.time_create}</Card.Meta>
+      <Card.Description>
+        {film.description.substring(0,50) + '...'}
+      </Card.Description>
+    </Card.Content>
+    <Card.Content extra>
+        <Icon name='user' />
+        Producer: {film.producer}
+    </Card.Content>
+  </Card>
         )
     }
 }

@@ -18,8 +18,8 @@ class ActorsList extends React.Component {
         
         return (
             <div className="row actor">
-                {actors.map((actor, i) =>  <div className="actors"> <Card>
-    <Image src="https://react.semantic-ui.com/images/avatar/large/matthew.png" wrapped ui={false} />
+                {actors.map((actor, i) =>  <div className="actors" key={i}> <Card>
+    <Image src={actor.avatar.url} wrapped ui={false} size={"medium"}/>
     <Card.Content>
       <Card.Header>{actor.name}</Card.Header>
       <Card.Meta>

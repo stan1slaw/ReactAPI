@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_16_132359) do
+ActiveRecord::Schema.define(version: 2019_08_19_082221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019_08_16_132359) do
     t.date "years"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar"
     t.index ["film_id"], name: "index_actors_on_film_id"
   end
 
@@ -69,6 +70,13 @@ ActiveRecord::Schema.define(version: 2019_08_16_132359) do
     t.datetime "updated_at", null: false
     t.json "avatars"
     t.integer "rating"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "actors", "films"
