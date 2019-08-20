@@ -2,6 +2,7 @@ import React from 'react'
 import '../App.css'
 import  {Card, Image} from 'semantic-ui-react'
 class ActorsList extends React.Component {
+
     constructor() {
         super()
         this.state = {
@@ -13,6 +14,7 @@ class ActorsList extends React.Component {
         .then(response => response.json())
         .then(json  => this.setState({actors: json}))
     }
+    
     render() {
        let  { actors } = this.state
         

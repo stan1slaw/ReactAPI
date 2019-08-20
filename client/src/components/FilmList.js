@@ -1,11 +1,13 @@
 import React from 'react';
 import '../App.css';
-import Film from './Film'
+import Film from './Film' 
+import { Card, Dimmer, Loader, Image } from 'semantic-ui-react';
 class FilmList extends React.Component {
   constructor() {
     super()
     this.state = {
-      films: []
+      films: [],
+      isFetching: true
     }
   this.getFilms = this.getFilms.bind(this)
   }
@@ -26,7 +28,7 @@ class FilmList extends React.Component {
     this.fetch('/api/films')
     .then(films => {
       if (films.length) {
-        this.setState({films: films})
+        this.setState({films: films, isFetching: false})
       } else {
         this.setState({films:[]})
       }
@@ -35,16 +37,24 @@ class FilmList extends React.Component {
  
 
   render() {
-    let { films } = this.state
-   
+    let { films, isFetching } = this.state
+
+    if (isFetching) return  <div>
+      <Dimmer active inverted>
+        <Loader inverted>Loading</Loader>
+      </Dimmer>
+  
+      <Image src='/images/wireframe/short-paragraph.png' />
+      </div>
     return (
-        <div>
-          {films.map((film,key) => {
+      
+        <Card.Group>         
+           {films.map((film,key) => {
             return (
              <Film film={film} key={key} />
             )
           })}
-        </div>
+          </Card.Group>
     )
   }
 }

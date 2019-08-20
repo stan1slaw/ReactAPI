@@ -6,12 +6,13 @@ import ActorsList from './components/ActorsList'
 import {  Route,Link, BrowserRouter as Router } from 'react-router-dom'
 import FilmShow from './components/FilmShow';
 import Login from './components/Login'
-import {Menu} from 'semantic-ui-react'
+import {Menu, Icon} from 'semantic-ui-react'
 import SignUp from './components/SignUp'
 import PrivateRoute from './components/PrivateRoute';
 import Profile from './components/Profile'
 class App extends React.Component {
-  state = { activeItem: 'home' }
+
+  state = { activeItem: 'Home' }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
@@ -26,7 +27,9 @@ class App extends React.Component {
             <Menu.Item name='Actors'  active={activeItem === 'Actors'} onClick={this.handleItemClick} as={Link} to='/actors' />
             <Menu.Item name='Films' active={activeItem === 'Films'} onClick={this.handleItemClick} as={Link} to='/films' />
           <Menu.Menu position='right'>
-            <Menu.Item name='Profile' active={activeItem === 'Profile'} onClick={this.handleItemClick} as={Link} to='/login'/>
+            <Menu.Item name='Profile' active={activeItem === 'Profile'} onClick={this.handleItemClick} as={Link} to='/login'>
+            <Icon name='home' size='large' />
+            </Menu.Item>
           </Menu.Menu>
         </Menu>
 

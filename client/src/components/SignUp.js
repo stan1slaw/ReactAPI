@@ -20,7 +20,7 @@ constructor() {
     {method: 'POST', body: formData })
     .then(res => res.json())
     .then(res => {
-      if (res.status != 4000) {
+      if (res.status !== 4000) {
         this.setState({data: res})
         console.log('you got error')
       
@@ -55,7 +55,7 @@ constructor() {
             {this.state.data.message?
            
             <Message color="red" >
-           Error, {this.state.data.message}
+           Error,username has lower then 3 symbol or {this.state.data.message}
           </Message>
              :  <Message as={Link} to="/login" color="teal">
              Did you have account?

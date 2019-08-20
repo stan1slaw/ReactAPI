@@ -3,7 +3,7 @@ class FilmsController < ApplicationController
 
   # GET /films
   def index
-    @films = Film.select("id,name,time_create,avatars,description, producer").all
+    @films = Film.select("id,name,time_create,avatars,description, producer, rating").all
     render json: @films
   end
 

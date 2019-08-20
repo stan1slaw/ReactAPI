@@ -17,7 +17,7 @@ a, a:link, a:hover {
   display: flex;
   justify-content: center;
 }
-.photos {
+.photos  {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -32,4 +32,15 @@ a, a:link, a:hover {
 }
 .form-login {
   margin-bottom: 10px !important;
+}
+.styling {
+  margin: 10px;
+}
+.film_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.bordered {
+  border: 5px solid black;
 }
