@@ -16,7 +16,7 @@ constructor() {
     formData.append("username",this.inputNode1.value);
     formData.append("password",this.inputNode2.value);
 
-    fetch("http://localhost:3001/api/users",
+    fetch("https://salty-basin-57911.herokuapp.com/api/users",
     {method: 'POST', body: formData })
     .then(res => res.json())
     .then(res => {
