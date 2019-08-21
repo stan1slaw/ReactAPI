@@ -35,7 +35,7 @@ constructor() {
   }
 
   render() {
-
+    const { message } = this.state.data
     return (
      
       <Grid textAlign='center' style={{ height: '80vh' }} verticalAlign='middle'>
@@ -52,16 +52,14 @@ constructor() {
             </Button>
           </Segment>
         </Form>
-            {this.state.data.message?
-           
+            {message?
             <Message color="red" >
-           Error,username has lower then 3 symbol or {this.state.data.message}
+           Error,username has lower then 3 symbol or {message}
           </Message>
              :  <Message as={Link} to="/login" color="teal">
              Did you have account?
            </Message>
         }
-       
       </Grid.Column>
      
     </Grid>

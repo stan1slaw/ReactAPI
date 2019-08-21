@@ -1,23 +1,31 @@
 import React from 'react'
 import '../App.css'
-import  {Card, Image} from 'semantic-ui-react'
+import  {Card, Image, Dimmer, Loader} from 'semantic-ui-react'
 class ActorsList extends React.Component {
 
     constructor() {
         super()
         this.state = {
-            actors: []
+            actors: [],
+            isFetching: true
         }
     }
     componentDidMount() {
         window.fetch('/api/actors')
         .then(response => response.json())
-        .then(json  => this.setState({actors: json}))
+        .then(json  => this.setState({actors: json, isFetching: false}))
     }
     
     render() {
-       let  { actors } = this.state
-        
+       let  { actors, isFetching } = this.state
+
+       if (isFetching) return  <div>
+       <Dimmer active inverted>
+         <Loader inverted>Loading</Loader>
+       </Dimmer>
+   
+       <Image src='/images/wireframe/short-paragraph.png' />
+       </div>
         return (
             <div className="row actor">
                 {actors.map((actor, i) =>  <div className="actors" key={i}> <Card>
