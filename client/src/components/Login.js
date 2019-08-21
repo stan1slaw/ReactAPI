@@ -16,7 +16,7 @@ constructor() {
         fetch("https://salty-basin-57911.herokuapp.com/api/tokens", 
         {method: 'POST', body: formData })
         .then(res => res.json())
-        .then(res => window.localStorage.setItem('jwt', res.jwt), console.log(res.jwt))
+        .then(res => {window.localStorage.setItem('jwt', res.jwt), console.log(res.jwt)})
         .then(() => this.props.history.push('/profile'))
         .catch(errors => this.setState({errors: errors}))
         
