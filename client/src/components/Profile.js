@@ -39,7 +39,7 @@ class Profile extends React.Component {
             fetch(`/api/users/${this.state.id}`)
             .then(response => response.json())
             .then(jsonStr => {
-              this.setState({user: jsonStr[0]});
+              this.setState({user: jsonStr[this.state.id - 1]});
             })
     }
     afterSubmit() {
@@ -49,7 +49,6 @@ class Profile extends React.Component {
     
         const {isFetching, user} = this.state
         const {username, lastname, description, gender, avatar, firstname} = user
-
        if  (isFetching) return  <div>
     <Dimmer active inverted>
       <Loader inverted>Loading</Loader>

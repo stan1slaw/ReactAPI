@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   
   def index
-    @users = User.all
-    render json: @users
+    users = User.all
+    render json: users
   end
   
   def show
@@ -11,13 +11,14 @@ class UsersController < ApplicationController
   end
   
   def create
-    user = User.new(user_params)
+    user = User.new(params.permit(:username,:password))
     if(user.save)
       :ok 
     else 
       render json: {status: "error", code: 4000, message: "This username has already :(" }
   end
 end
+
 def update
     user = User.find(params[:id])
   if user.update(user_params)
