@@ -13,7 +13,7 @@ constructor() {
         formData.append("username",this.inputNode1.value);
         formData.append("password",this.inputNode2.value);
 
-        fetch("https://salty-basin-57911.herokuapp.com/api/tokens", 
+        fetch("http://localhost:3001/api/tokens", 
         {method: 'POST', body: formData })
         .then(res => res.json())
         .then(res => window.localStorage.setItem('jwt', res.jwt))

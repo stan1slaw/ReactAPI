@@ -26,7 +26,7 @@ class ChangeForm extends React.Component {
              description:this.state.description,
              gender:this.state.gender
             }
-        fetch(`https://salty-basin-57911.herokuapp.com/api/users/${this.props.user.id}`, {
+        fetch(`http://localhost:3001/api/users/${this.props.user.id}`, {
             method: "PUT",
             body: JSON.stringify(data),
             headers:{'Content-Type':'application/json'}})
