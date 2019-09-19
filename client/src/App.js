@@ -10,6 +10,7 @@ import {Menu, Icon} from 'semantic-ui-react'
 import SignUp from './components/SignUp'
 import PrivateRoute from './components/PrivateRoute';
 import Profile from './components/Profile'
+import News from './components/News';
 class App extends React.Component {
 
   state = { activeItem: 'Home' }
@@ -26,6 +27,7 @@ class App extends React.Component {
             <Menu.Item name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} as={Link} to='/' />
             <Menu.Item name='Actors'  active={activeItem === 'Actors'} onClick={this.handleItemClick} as={Link} to='/actors' />
             <Menu.Item name='Films' active={activeItem === 'Films'} onClick={this.handleItemClick} as={Link} to='/films' />
+            <Menu.Item name='News' active={activeItem === 'News'} onClick={this.handleItemClick} as={Link} to='/news' />
           <Menu.Menu position='right'>
             <Menu.Item name='Profile' active={activeItem === 'Profile'} onClick={this.handleItemClick} as={Link} to='/login'>
             <Icon name='home' size='large' />
@@ -38,6 +40,7 @@ class App extends React.Component {
           <Route path="/actors" component={ActorsList}/>
           <Route path="/film/:id" component={FilmShow}/>
           <Route path="/login" component={Login}/>
+          <PrivateRoute  component={News} path="/news" eaxct/>
           <PrivateRoute component={Profile} path="/profile" exact/>
           <Route path="/signup" render={() => <SignUp/>}/>
         </Router>

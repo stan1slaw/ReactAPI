@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Film < ApplicationRecord
-    has_many :actors_films, dependent: :destroy
-    has_many :actors, through: :actors_films
-    mount_uploaders :avatars, AvatarUploader
+  has_many :actors_films, dependent: :destroy
+  has_many :actors, through: :actors_films
+  mount_uploaders :avatars, AvatarUploader
 end

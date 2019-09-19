@@ -22,12 +22,9 @@ constructor() {
     .then(res => {
       if (res.status !== 4000) {
         this.setState({data: res})
-        console.log('you got error')
-      
       }
       else {
         this.props.history.push('/login')
-        console.log('reconnect')
       }
     })
     .catch(errors => console.log(errors))

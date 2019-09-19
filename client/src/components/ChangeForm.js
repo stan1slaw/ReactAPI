@@ -6,11 +6,11 @@ class ChangeForm extends React.Component {
     constructor(props) {
         super()
         this.state = {
-            username: props.user.username,
-            firstname:props.user.firstname,
-            lastname: props.user.lastname,
-            gender: props.user.gender,
-            description: props.user.description
+            username: props.user.username || '',
+            firstname:props.user.firstname|| '',
+            lastname: props.user.lastname|| '',
+            gender: props.user.gender || '',
+            description: props.user.description || ''
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
@@ -25,7 +25,7 @@ class ChangeForm extends React.Component {
              firstname:this.state.firstname,
              description:this.state.description,
              gender:this.state.gender
-            }
+        }
         fetch(`http://localhost:3001/api/users/${this.props.user.id}`, {
             method: "PUT",
             body: JSON.stringify(data),

@@ -24,7 +24,7 @@ class Profile extends React.Component {
         this.afterSubmit = this.afterSubmit.bind(this)
     }
     
-    SignOut() {
+    SignOut = () => {
         window.localStorage.removeItem('jwt')
         this.props.history.push('/login')
     }
@@ -33,6 +33,12 @@ class Profile extends React.Component {
         this.setState( prevState => ({
             isChanging: !prevState.isChanging
           }))
+    }
+
+    display = () => {
+      fetch(`/api/user/${this.state.id}`)
+        .then(response => response.json())
+        .then( response => console.log(response) )
     }
 
     componentDidMount() {
@@ -45,6 +51,9 @@ class Profile extends React.Component {
     afterSubmit() {
       this.props.history.push('/')
     }
+    
+   
+
     render() {
     
         const {isFetching, user} = this.state
@@ -54,7 +63,6 @@ class Profile extends React.Component {
       <Loader inverted>Loading</Loader>
     </Dimmer>
        </div>  
-
             return (
              
                 <Grid>
@@ -101,6 +109,12 @@ class Profile extends React.Component {
     </Feed.Event>
   </Feed>
     </Grid.Column>
+     <Button animated secondary onClick={this.display}>
+      <Button.Content visible>Preview</Button.Content>
+      <Button.Content hidden>
+        <Icon name="sign-out alternate" />
+      </Button.Content>
+    </Button>
   </Grid>
             )
         }

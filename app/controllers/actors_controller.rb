@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ActorsController < ApplicationController
-  before_action :set_actor, only: [:show, :update, :destroy]
+  before_action :set_actor, only: %i[show update destroy]
 
   # GET /actors
   def index
@@ -39,13 +41,14 @@ class ActorsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_actor
-      @actor = Actor.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def actor_params
-      params.require(:actor).permit(:film_id, :description, :name, :years, :avatar)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_actor
+    @actor = Actor.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def actor_params
+    params.require(:actor).permit(:film_id, :description, :name, :years, :avatar)
+  end
 end

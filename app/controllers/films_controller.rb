@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 class FilmsController < ApplicationController
-  before_action :set_film, only: [:show, :update, :destroy]
+  before_action :set_film, only: %i[show update destroy]
 
   # GET /films
   def index
-    @films = Film.select("id,name,time_create,avatars,description, producer, rating").all
+    @films = Film.select('id,name,time_create,avatars,description, producer, rating').all
     render json: @films
   end
 
   # GET /films/1
   def show
-    render json: @film.to_json(:include => { :actors => { :only => [:id, :name, :avatar] }})
+    render json: @film.to_json(include: { actors: { only: %i[id name avatar] } })
     end
 
   # POST /films
@@ -38,13 +40,14 @@ class FilmsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_film
-      @film = Film.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def film_params
-      params.require(:film).permit(:name, :description, :producer, :time_create)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_film
+    @film = Film.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def film_params
+    params.require(:film).permit(:name, :description, :producer, :time_create)
+  end
 end
